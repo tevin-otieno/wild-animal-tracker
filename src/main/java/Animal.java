@@ -77,7 +77,6 @@ public class Animal implements DatabaseInterface{
                         .addParameter("id", this.id)
                         .executeUpdate();
             } else {
-
                 String sql = "UPDATE animals SET type=:type,health=:health,age=:age WHERE id=:id";
                 con.createQuery(sql)
                         .addParameter("type", type)
@@ -90,6 +89,18 @@ public class Animal implements DatabaseInterface{
         }catch (Sql2oException ex){
             System.out.println(ex);
         }
+    }
+    public static Animal find(int id){
+        try (Connection con=DB.sql2o.open()){
+            String sql= "SELECT * FROM animals WHERE id=:id";
+            Animal animal=  con.createQuery(sql)
+                    .addParameter("id",id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(Animal.class);
+            return animal;
+
+        }
+
     }
 
     public void delete(){
