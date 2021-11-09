@@ -1,0 +1,31 @@
+{{#partial "content"}}
+    <div>
+    {{#if animals}}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Health</th>
+                <th scope="col">Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each animals as |a|}}
+            <tr>
+                <th scope="row">{{a.id}}</th>
+                <td>{{a.name}}</td>
+                <td>{{a.category}}</td>
+                <td>{{a.health}}</td>
+                <td>{{a.age}}</td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <h2>No animals! Record animal sightings <a href="/create/animal">here</a></h2>
+    {{/if}}
+    </div>
+{{/partial}}
+{{> layout.hbs}}
