@@ -42,7 +42,7 @@ public class EndangeredAnimal extends Animal implements DatabaseInterface{
 
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("name",this.name)
-                    .addParameter("type",this.category)
+                    .addParameter("category",this.category)
                     .addParameter("health",this.health)
                     .addParameter("age",this.age)
                     .executeUpdate()
