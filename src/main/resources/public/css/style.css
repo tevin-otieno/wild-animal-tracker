@@ -1,3 +1,7 @@
+body{
+     background-image: url("/images/pexels-robert-anthony-carbone-598966.jpg");
+     background-size:cover;
+     }
 label{
     user-select: none;
 }
