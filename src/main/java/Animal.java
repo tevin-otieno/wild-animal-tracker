@@ -13,7 +13,7 @@ public class Animal implements DatabaseInterface{
     private String age;
     public static final String ANIMAL_CATEGORY="normal";
 
-    public Animal(String name,String type) {
+    public Animal(String name,String category) {
         this.name = name;
         this.category=ANIMAL_CATEGORY;
         this.health="";
@@ -53,7 +53,7 @@ public class Animal implements DatabaseInterface{
 
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("name",this.name)
-                    .addParameter("type",this.category)
+                    .addParameter("category",this.category)
                     .executeUpdate()
                     .getKey();
         }

@@ -66,12 +66,12 @@
             <div class="form-group">
                 <label for="type">Type</label><br>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="normal"
+                    <input class="form-check-input" type="radio" name="category" id="inlineRadio1" value="normal"
                            onClick="window.location = '/create/animal';" checked>
                     <label class="form-check-label" for="inlineRadio1">Normal</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="endangered"
+                    <input class="form-check-input" type="radio" name="category" id="inlineRadio1" value="endangered"
                            onClick="window.location = '/create/animal/endangered';">
                     <label class="form-check-label" for="inlineRadio2">Endangered</label>
 
@@ -80,6 +80,11 @@
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Input Name..." required>
+                <label for="age">Age</label>
+                <input type="text" class="form-control form-control-lg" id="age" name="age" placeholder="Input Age..." required>
+                <label for="health">Health</label>
+                <input type="text" class="form-control form-control-lg" id="health" name="health" placeholder="Input Health..." required>
+
             </div>
             {{/if}}
             <div class="form-group">

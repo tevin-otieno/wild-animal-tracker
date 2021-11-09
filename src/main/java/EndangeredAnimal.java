@@ -14,9 +14,9 @@ public class EndangeredAnimal extends Animal implements DatabaseInterface{
 
     public static final String ANIMAL_CATEGORY="endangered";
 
-    public EndangeredAnimal(String name,String type,String health,String age) {
-        super(name,type);
-        this.category=type;
+    public EndangeredAnimal(String name,String category,String health,String age) {
+        super(name,category);
+        this.category=category;
         this.health=health;
         this.age=age;
     }
