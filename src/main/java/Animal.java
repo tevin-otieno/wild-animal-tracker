@@ -102,6 +102,15 @@ public class Animal implements DatabaseInterface{
         }
 
     }
+    public static void deleteAll() {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "DELETE FROM animals";
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 
     public void delete(){
         try (Connection con=DB.sql2o.open()){
@@ -131,6 +140,7 @@ public class Animal implements DatabaseInterface{
         return name.equals(animals.name) &&
                 category.equals(animals.category);
     }
+
 
     @Override
     public int hashCode() {
