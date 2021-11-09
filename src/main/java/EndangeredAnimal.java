@@ -38,8 +38,7 @@ public class EndangeredAnimal extends Animal implements DatabaseInterface{
         }
         try (Connection con=DB.sql2o.open()){
 
-
-            String sql ="INSERT INTO animals (name,type,health,age) VALUES (:name,:type,:health,:age)";
+            String sql ="INSERT INTO animals (name,category,health,age) VALUES (:name,:category,:health,:age)";
 
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("name",this.name)

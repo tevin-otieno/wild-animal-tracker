@@ -35,12 +35,12 @@ public class App {
             System.out.println(age);
             String name=request.queryParams("name");
             System.out.println(name);
-            if(type.equals(EndangeredAnimal.ANIMAL_TYPE)){
-                EndangeredAnimal endangered=new EndangeredAnimal(name,EndangeredAnimal.ANIMAL_TYPE,health,age);
+            if(type.equals(EndangeredAnimal.ANIMAL_CATEGORY)){
+                EndangeredAnimal endangered=new EndangeredAnimal(name,EndangeredAnimal.ANIMAL_CATEGORY,health,age);
                 endangered.save();
             }
             else {
-                Animal animal=new Animal(name,Animal.ANIMAL_TYPE);
+                Animal animal=new Animal(name,Animal.ANIMAL_CATEGORY);
                 animal.save();
             }
 

@@ -11,11 +11,11 @@ public class Animal implements DatabaseInterface{
     public String category;
     private String health;
     private String age;
-    public static final String ANIMAL_TYPE="normal";
+    public static final String ANIMAL_CATEGORY="normal";
 
     public Animal(String name,String type) {
         this.name = name;
-        this.category=ANIMAL_TYPE;
+        this.category=ANIMAL_CATEGORY;
         this.health="";
         this.age="";
     }
@@ -49,7 +49,7 @@ public class Animal implements DatabaseInterface{
         try (Connection con=DB.sql2o.open()){
 
 
-            String sql ="INSERT INTO animals (name,type) VALUES (:name,:type)";
+            String sql ="INSERT INTO animals (name,category) VALUES (:name,:category)";
 
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("name",this.name)
@@ -69,7 +69,7 @@ public class Animal implements DatabaseInterface{
                 if (health.equals("") || age.equals("")) {
                     throw new IllegalArgumentException("All fields must be filled");
                 }
-                String sql = "UPDATE animals SET type=:type,health=:health,age=:age WHERE id=:id";
+                String sql = "UPDATE animals SET category=:category,health=:health,age=:age WHERE id=:id";
                 con.createQuery(sql)
                         .addParameter("type", type)
                         .addParameter("health", health)
@@ -77,7 +77,7 @@ public class Animal implements DatabaseInterface{
                         .addParameter("id", this.id)
                         .executeUpdate();
             } else {
-                String sql = "UPDATE animals SET type=:type,health=:health,age=:age WHERE id=:id";
+                String sql = "UPDATE animals SET category=:category,health=:health,age=:age WHERE id=:id";
                 con.createQuery(sql)
                         .addParameter("type", type)
                         .addParameter("health", "")
